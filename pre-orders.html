@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Pre-Orders Work — Second Scoop</title>
+  <meta name="description" content="How Second Scoop pre-orders work: weekly batches, limited windows and fresh-to-slot baking. Open for orders, closing soon, or sold out — here's the full flow.">
+  <meta property="og:title" content="How Pre-Orders Work — Second Scoop">
+  <meta property="og:description" content="Weekly batches, limited windows, baked fresh to your slot. Here's how to order.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='16' fill='%23C8843E'/%3E%3Ccircle cx='14' cy='16' r='2.5' fill='%233A2114'/%3E%3Ccircle cx='25' cy='15' r='3' fill='%233A2114'/%3E%3Ccircle cx='23' cy='25' r='2.2' fill='%233A2114'/%3E%3Ccircle cx='15' cy='26' r='2' fill='%233A2114'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="pre-orders">
+  <div id="ss-top"></div>
+
+  <main>
+    <!-- ===================== PAGE HEAD ===================== -->
+    <header class="page-head wrap">
+      <span class="eyebrow center-eyebrow">How Pre-Orders Work</span>
+      <h1>Fresh Means Pre-Order.</h1>
+      <p>We don't bake to sit on a shelf. We bake in small weekly batches, to your slot — which means ordering ahead. Here's exactly how it works.</p>
+    </header>
+
+    <!-- ===================== STATUS CARDS ===================== -->
+    <section class="section" style="padding-top:1rem">
+      <div class="wrap">
+        <div class="center reveal" style="margin-bottom:2rem">
+          <span class="eyebrow center-eyebrow">Order windows</span>
+          <h2 class="section-title">Three Things a Drop Can Be</h2>
+        </div>
+        <div class="status-cards reveal">
+          <div class="status-card open"><div class="s-dot"></div><h3>Open For Orders</h3><p>The window is live. Add your scoops and lock your slot before the cutoff.</p></div>
+          <div class="status-card closing"><div class="s-dot"></div><h3>Closing Soon</h3><p>Last call. A few slots left before we close to start baking.</p></div>
+          <div class="status-card closed"><div class="s-dot"></div><h3>Sold Out</h3><p>This batch is done. Join the list and we'll alert you for the next one.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TIMELINE ===================== -->
+    <section class="section" style="background:var(--cream-2)">
+      <div class="wrap">
+        <div class="center reveal" style="margin-bottom:2.6rem">
+          <span class="eyebrow center-eyebrow">Step by step</span>
+          <h2 class="section-title">From Tap to Spoon</h2>
+        </div>
+        <div class="timeline reveal">
+          <div class="timeline-step"><div class="timeline-num">1</div><div class="timeline-body"><h3>Orders open</h3><p>Each week we open a pre-order window and announce it on the banner and Instagram. Pick your region, browse the lineup, add what you want.</p></div></div>
+          <div class="timeline-step"><div class="timeline-num">2</div><div class="timeline-body"><h3>Reserve your slot</h3><p>Check out to reserve. In Pakistan we confirm over WhatsApp; in Toronto you'll get an email confirmation. Payment locks your batch.</p></div></div>
+          <div class="timeline-step"><div class="timeline-num">3</div><div class="timeline-body"><h3>Orders close</h3><p>At the cutoff (watch the banner) the window closes so we can finalise quantities and bake everything fresh — nothing pre-made.</p></div></div>
+          <div class="timeline-step"><div class="timeline-num">4</div><div class="timeline-body"><h3>We bake &amp; hand over</h3><p>On drop day we bake to your slot, then deliver or hand it over at pickup. Scoopies travel warm-ready — reheat for that molten centre.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ANNOUNCEMENT EXPLAINER ===================== -->
+    <section class="section">
+      <div class="wrap">
+        <div class="secret-teaser reveal">
+          <div class="secret-teaser__inner">
+            <div>
+              <span class="eyebrow" style="color:var(--blush)">Watch the banner</span>
+              <h2>Where to Find the Next Cutoff.</h2>
+              <p>The strip at the very top of every page always shows the current pre-order status. Right now it says:</p>
+              <p style="font-family:var(--font-display);font-size:1.4rem;color:var(--cream);margin-top:.6rem" id="po-announcement">Pre-orders close Thursday at midnight.</p>
+              <a class="btn btn-blush btn-arrow" href="shop-pakistan.html" style="margin-top:1.2rem">Order now</a>
+            </div>
+            <div class="lock-art">⏳</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="ss-bottom"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+  <!-- Mirror the live announcement text from config so this page never goes stale. -->
+  <script>
+    (function () {
+      var el = document.getElementById("po-announcement");
+      if (el && window.SS_CONFIG && SS_CONFIG.announcement && SS_CONFIG.announcement.text) {
+        el.textContent = SS_CONFIG.announcement.text;
+      }
+    })();
+  </script>
+</body>
+</html>

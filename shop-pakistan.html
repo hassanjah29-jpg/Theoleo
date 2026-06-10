@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Pakistan — Second Scoop | Lahore Pre-Orders</title>
+  <meta name="description" content="Order Second Scoop in Lahore. Scoopable cookies, edible cookie dough and limited drops — fresh weekly pre-orders with delivery across Lahore. Prices in PKR.">
+  <meta property="og:title" content="Shop Second Scoop — Pakistan">
+  <meta property="og:description" content="Scoopable cookies, edible cookie dough and limited drops, baked fresh in Lahore.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='16' fill='%23C8843E'/%3E%3Ccircle cx='14' cy='16' r='2.5' fill='%233A2114'/%3E%3Ccircle cx='25' cy='15' r='3' fill='%233A2114'/%3E%3Ccircle cx='23' cy='25' r='2.2' fill='%233A2114'/%3E%3Ccircle cx='15' cy='26' r='2' fill='%233A2114'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<!-- data-page="shop-pakistan" tells app.js to pin the region to Pakistan (PKR). -->
+<body data-page="shop-pakistan">
+  <div id="ss-top"></div>
+
+  <main>
+    <!-- ===================== PAGE HEAD ===================== -->
+    <header class="page-head wrap">
+      <span class="eyebrow center-eyebrow">Shop · Lahore 🇵🇰</span>
+      <h1>Second Scoop, Fresh in Lahore</h1>
+      <!-- #shop-intro is filled from config.regions.pk.fulfilment.intro -->
+      <p id="shop-intro"></p>
+    </header>
+
+    <!-- ===================== ORDER STATUS BANNER ===================== -->
+    <!-- #shop-banner is filled from config.regions.pk.orderStatus -->
+    <div class="wrap"><div class="shop-banner" id="shop-banner"></div></div>
+
+    <!-- ===================== PRODUCT CATALOG ===================== -->
+    <section class="section" style="padding-top:.5rem">
+      <div class="wrap">
+        <!-- #shop-grid is filled by app.js with PKR pricing + availability -->
+        <div class="featured-grid reveal" id="shop-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===================== LOGISTICS ===================== -->
+    <section class="section" style="background:var(--cream-2);padding-top:clamp(2rem,5vw,3.5rem)">
+      <div class="wrap">
+        <div class="reveal" style="margin-bottom:1.6rem">
+          <span class="eyebrow">Getting it to you</span>
+          <h2 class="section-title">Delivery, Pickup &amp; Payment</h2>
+          <p class="section-lead">Everything below is editable in one place — update zones, fees and payment options in the config file.</p>
+        </div>
+        <!-- #logistics is filled from config.regions.pk.fulfilment -->
+        <div class="logistics reveal" id="logistics"></div>
+      </div>
+    </section>
+
+    <!-- ===================== NEWSLETTER / CAPTURE ===================== -->
+    <section class="section">
+      <div class="wrap">
+        <div class="capture reveal">
+          <div class="capture__grid">
+            <div>
+              <span class="eyebrow">Stay in the loop</span>
+              <h2>Unlock Future Scoops</h2>
+              <p>Secret codes, limited drops and restock alerts — straight to your phone.</p>
+            </div>
+            <form data-capture-form>
+              <div class="form-row">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:.7rem">
+                  <div class="field"><label for="cap-name">Name</label><input class="input" id="cap-name" type="text" placeholder="Your name" required></div>
+                  <div class="field"><label for="cap-phone">Phone</label><input class="input" id="cap-phone" type="tel" placeholder="+92 300…" required></div>
+                </div>
+                <div class="field"><label for="cap-email">Email</label><input class="input" id="cap-email" type="email" placeholder="you@email.com" required></div>
+                <button class="btn btn-primary btn-block" type="submit">Get the Alerts 🍪</button>
+                <div class="form-success"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="ss-bottom"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

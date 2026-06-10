@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Second Scoop — The First Scoop Is Never Enough</title>
+  <meta name="description" content="Second Scoop creates scoopable cookies, edible cookie dough, and limited dessert drops designed to disappear fast. Shop Pakistan (Lahore) or Toronto.">
+  <meta property="og:title"       content="Second Scoop — The First Scoop Is Never Enough">
+  <meta property="og:description" content="Scoopable cookies, edible cookie dough, and limited dessert drops. Built to be craved.">
+  <meta property="og:type"        content="website">
+  <!-- Cookie favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='16' fill='%23C8843E'/%3E%3Ccircle cx='14' cy='16' r='2.5' fill='%233A2114'/%3E%3Ccircle cx='25' cy='15' r='3' fill='%233A2114'/%3E%3Ccircle cx='23' cy='25' r='2.2' fill='%233A2114'/%3E%3Ccircle cx='15' cy='26' r='2' fill='%233A2114'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="home">
+  <!-- app.js injects the announcement bar + header here -->
+  <div id="ss-top"></div>
+
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+      <div class="wrap hero__grid">
+
+        <!-- Left: copy -->
+        <div class="hero__copy">
+          <span class="hero__badge">🍪 New drops every Friday</span>
+          <h1>The First Scoop <span class="accent">Is Never</span> Enough.</h1>
+          <p class="hero__sub">Second Scoop creates scoopable cookies, edible cookie dough, and limited dessert drops designed to disappear fast.</p>
+          <div class="hero__cta">
+            <a class="btn btn-primary btn-arrow" href="shop-pakistan.html">Shop Pakistan 🇵🇰</a>
+            <a class="btn btn-ghost  btn-arrow" href="shop-toronto.html">Shop Toronto 🇨🇦</a>
+          </div>
+          <div class="hero__trust">
+            <div><strong>3</strong> signature ranges</div>
+            <div><strong>2</strong> cities, fresh weekly</div>
+            <div><strong>41min</strong> fastest sell-out</div>
+          </div>
+        </div>
+
+        <!-- Right: OG Scoopie illustration / photo -->
+        <div class="hero__art">
+          <div class="hero__blob"></div>
+          <!-- app.js renders the OG Scoopie SVG (or real photo) into this div -->
+          <div class="hero__img-wrap">
+            <div class="product-media" id="hero-illustration"></div>
+          </div>
+          <!-- Floating callout badges -->
+          <div class="hero__float hero__float--1">
+            <span class="big">🥄</span> Eat warm
+          </div>
+          <div class="hero__float hero__float--2">
+            Gooey centre · <span class="big">always</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== MARQUEE TICKER ===================== -->
+    <!--
+      app.js (buildTicker) fills this with a scrolling strip of product names
+      and brand phrases. Pauses on hover. Purely decorative / aria-hidden.
+    -->
+    <div class="ticker" id="ticker-strip" role="presentation"></div>
+
+    <!-- ===================== FEATURED PRODUCTS ===================== -->
+    <section class="section" id="shop">
+      <div class="wrap">
+        <div class="center reveal" style="margin-bottom:2.5rem">
+          <span class="eyebrow center-eyebrow">The Lineup</span>
+          <h2 class="section-title">Meet the Cravings</h2>
+          <p class="section-lead">Led by the OG Scoopie — the cookie you were never supposed to stop eating.</p>
+        </div>
+        <!-- app.js (buildFeatured) renders 3 product cards; OG Scoopie is hero-sized -->
+        <div class="featured-grid reveal" id="featured-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===================== HOW IT WORKS ===================== -->
+    <section class="section" style="background:var(--cream-2)">
+      <div class="wrap">
+        <div class="center reveal" style="margin-bottom:3rem">
+          <span class="eyebrow center-eyebrow">How It Works</span>
+          <h2 class="section-title">Three Scoops to Happiness</h2>
+        </div>
+        <!-- app.js (buildHowItWorks) renders the 3-step process from config -->
+        <div class="steps" id="how-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===================== LIMITED DROPS ===================== -->
+    <section class="section" id="drops">
+      <div class="wrap">
+        <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;margin-bottom:2.2rem">
+          <div>
+            <span class="eyebrow">Limited Drops</span>
+            <h2 class="section-title">Here, Then Gone.</h2>
+            <p class="section-lead">Small batches, big hype. When it's gone, it's gone — until it isn't.</p>
+          </div>
+          <a class="btn btn-ghost btn-arrow" href="vault.html">Enter The Vault</a>
+        </div>
+        <!-- app.js (buildDrops) renders drop cards + live countdown timers from config -->
+        <div class="drops-grid reveal" id="drops-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===================== SECRET TEASER ===================== -->
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="secret-teaser reveal">
+          <div class="secret-teaser__inner">
+            <div>
+              <span class="eyebrow" style="color:var(--blush)">Secret Scoop</span>
+              <h2>Some Scoops Aren't on the Menu.</h2>
+              <p>Hidden products unlocked only with a secret code. Follow us, catch a drop, and get into The Vault.</p>
+              <a class="btn btn-blush btn-arrow" href="vault.html">Have a code?</a>
+            </div>
+            <div class="lock-art" aria-hidden="true">🔒</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== INSTAGRAM ===================== -->
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="center reveal" style="margin-bottom:2rem">
+          <span class="eyebrow center-eyebrow">@secondscoopco</span>
+          <h2 class="section-title">Join The Scoop</h2>
+          <p class="section-lead">Tag us. The best shots make it to our feed.</p>
+        </div>
+        <!-- app.js (buildInstagram) renders the 6-tile IG grid from config -->
+        <div class="ig-grid reveal" id="ig-grid"></div>
+        <div class="center" style="margin-top:1.8rem">
+          <a class="btn btn-primary btn-arrow" href="https://instagram.com/secondscoopco" target="_blank" rel="noopener">
+            Follow on Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== NEWSLETTER / CAPTURE ===================== -->
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="capture reveal">
+          <div class="capture__grid">
+            <div>
+              <span class="eyebrow">Stay in the loop</span>
+              <h2>Unlock Future Scoops</h2>
+              <p>Secret codes, limited drops and restock alerts — straight to your phone.</p>
+            </div>
+            <!-- data-capture-form: app.js handles success state + TODO provider hook -->
+            <form data-capture-form>
+              <div class="form-row">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:.7rem">
+                  <div class="field">
+                    <label for="cap-name">Name</label>
+                    <input class="input" id="cap-name" type="text" placeholder="Your name" required>
+                  </div>
+                  <div class="field">
+                    <label for="cap-phone">Phone</label>
+                    <input class="input" id="cap-phone" type="tel" placeholder="+92 / +1" required>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="cap-email">Email</label>
+                  <input class="input" id="cap-email" type="email" placeholder="you@email.com" required>
+                </div>
+                <button class="btn btn-primary btn-block" type="submit">Get the Alerts 🍪</button>
+                <div class="form-success"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- app.js injects the footer here -->
+  <div id="ss-bottom"></div>
+
+  <!-- Scripts: config first (defines SS_CONFIG), then app logic -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
