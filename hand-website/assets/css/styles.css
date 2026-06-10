@@ -804,6 +804,143 @@ a:hover { color: var(--accent-dark); }
   .h-track { flex-wrap: wrap; width: auto; padding-inline: 4vw; }
 }
 
+/* ============================================================
+   PAGE SIGNATURES — one distinct premium effect per page,
+   all built from the same motion tokens. See MOTION-SYSTEM.md §11.
+   ============================================================ */
+
+/* --- Services: floating index rail + alternating entrances --- */
+
+.service-rail {
+  position: fixed;
+  left: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: none;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+@media (min-width: 1360px) { .service-rail { display: flex; } }
+.service-rail a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-faint);
+}
+.service-rail .n {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+.service-rail .l {
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity var(--dur-fast) var(--ease-soft),
+              transform var(--dur-fast) var(--ease-soft);
+  white-space: nowrap;
+}
+.service-rail a:hover .l, .service-rail a.current .l { opacity: 1; transform: none; }
+.service-rail a.current { color: var(--ink); }
+.service-rail a.current .n { color: var(--accent); }
+
+.motion-ready .page-services .reveal:not(.in) .grid-2 > .reveal-item { transform: translateX(-32px); }
+.motion-ready .page-services .reveal:nth-of-type(even):not(.in) .grid-2 > .reveal-item { transform: translateX(32px); }
+
+/* --- Work: cinematic focus (JS drives transform/opacity per frame) --- */
+
+.page-work .case-block { will-change: transform, opacity; }
+
+/* --- Approach: the Method draws itself --- */
+
+.page-approach .timeline { position: relative; padding-left: 2.6rem; }
+.page-approach .timeline::before {
+  content: "";
+  position: absolute;
+  left: 10px; top: 8px; bottom: 8px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--line);
+}
+.page-approach .timeline .t-progress {
+  position: absolute;
+  left: 10px; top: 8px;
+  height: calc(100% - 16px);
+  width: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.page-approach .timeline .step { position: relative; transition: opacity 450ms var(--ease-soft), border-color var(--dur-base) var(--ease-soft); }
+.page-approach .timeline .step::after {
+  content: "";
+  position: absolute;
+  left: calc(-2.6rem + 5px);
+  top: 2.1rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  transition: background var(--dur-base) var(--ease-soft), border-color var(--dur-base) var(--ease-soft);
+}
+.page-approach .timeline .step.passed { border-color: #c9d8d2; }
+.page-approach .timeline .step.passed::after { background: var(--accent); border-color: var(--accent); }
+.page-approach .timeline .step.dim { opacity: 0.45; }
+
+/* --- About: headlines wipe in and sharpen; cards tilt in 3D --- */
+
+.page-about .reveal h2 {
+  clip-path: inset(0 0 0 0);
+  filter: blur(0);
+  transition: clip-path 900ms var(--ease-out), filter 900ms var(--ease-out),
+              opacity var(--dur-reveal) var(--ease-out);
+}
+.motion-ready .page-about .reveal:not(.in) h2 { clip-path: inset(0 100% 0 0); filter: blur(8px); }
+.page-about .grid-3 { perspective: 1000px; }
+.page-about .card { transform-style: preserve-3d; }
+
+/* --- Audit: the checklist ticks itself; the form holds its ground --- */
+
+.page-audit .pain-list li::before { content: "✓"; font-weight: 700; }
+.motion-ready .page-audit .pain-list li::before {
+  transform: scale(0) rotate(-30deg);
+  transition: transform 420ms var(--ease-out);
+}
+.motion-ready .page-audit .pain-list li.in::before { transform: none; }
+.page-audit .pain-list li:nth-child(1)::before { transition-delay: 180ms; }
+.page-audit .pain-list li:nth-child(2)::before { transition-delay: 250ms; }
+.page-audit .pain-list li:nth-child(3)::before { transition-delay: 320ms; }
+.page-audit .pain-list li:nth-child(4)::before { transition-delay: 390ms; }
+.page-audit .pain-list li:nth-child(5)::before { transition-delay: 460ms; }
+@media (min-width: 861px) {
+  .page-audit form.card { position: sticky; top: 110px; }
+}
+
+/* --- Contact: focus-glow form, aside keeps you company --- */
+
+.form input, .form select, .form textarea {
+  transition: border-color var(--dur-fast) var(--ease-soft),
+              box-shadow var(--dur-fast) var(--ease-soft);
+}
+.form input:focus, .form select:focus, .form textarea:focus {
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+.form label { transition: color var(--dur-fast) var(--ease-soft); }
+.form label:focus-within { color: var(--accent-dark); }
+@media (min-width: 861px) {
+  .page-contact .grid-2 > div:last-child { position: sticky; top: 110px; align-self: start; }
+}
+
+/* --- FAQ: real accordion physics (height animated by JS) --- */
+
+.page-faq .faq-item summary { transition: color var(--dur-fast) var(--ease-soft); }
+.page-faq .faq-item summary:hover { color: var(--accent-dark); }
+.motion-ready .page-faq .faq-item[open] .answer { animation: none; }
+
 /* ---------- Cross-page transitions (progressive enhancement) ---------- */
 
 @view-transition { navigation: auto; }
@@ -822,6 +959,12 @@ a:hover { color: var(--accent-dark); }
     opacity: 1; transform: none; clip-path: none; transition: none;
   }
   .motion-ready .reveal:not(.in) .commitment::before { transform: none; }
+  .motion-ready .page-services .reveal:not(.in) .grid-2 > .reveal-item { transform: none; }
+  .motion-ready .page-about .reveal:not(.in) h2 { clip-path: none; filter: none; }
+  .motion-ready .page-audit .pain-list li::before { transform: none; transition: none; }
+  .page-approach .timeline .step.dim { opacity: 1; }
+  .service-rail .l, .service-rail .n,
+  .form input, .form select, .form textarea, .form label { transition: none; }
   .site-header, .btn, .btn-outline::before, .card, .quote-card,
   .timeline .step, .chip, .nav-toggle { transition: none; }
   .nav-links.open, .nav-links.open li, .faq-item[open] .answer, .form-success { animation: none; }

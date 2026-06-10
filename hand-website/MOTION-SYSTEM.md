@@ -174,4 +174,23 @@ Chapter mechanics: heights and pinning are applied by JS only, so no-JS and redu
 
 ---
 
+## 11. Page Signatures
+
+Every page carries the shared grammar (reveals, hovers, header, cascades) plus **one signature effect** of its own — different on every page, all built from the same tokens so the site feels like one hand made it:
+
+| Page | Signature | Behavior |
+|---|---|---|
+| **Home** | Pinned scrub chapters | Hero handoff, word-by-word statement, case zoom, horizontal process (§ Scroll System) |
+| **Services** | Floating index rail | A fixed 01–05 rail (≥1360px) tracks the current service as you scroll; labels slide out on hover/current, numbers tint accent. Cards enter alternating left/right per section — the page "hands" content to you from both sides |
+| **Work** | Cinematic focus | Continuous scroll-linked focus: the case study nearest viewport center sits at full scale and opacity; others recede to 96–98% scale and ~60% opacity. Reading one story at a time is enforced by light, not layout. Snapshot credentials stagger in |
+| **Approach** | The Method draws itself | An accent progress line draws down the timeline as you read; each stage's node fills and the card ignites as the line passes, while unread stages wait dimmed. The process page *performs* the process |
+| **About** | Wipe & sharpen + 3D tilt | Headlines reveal via left-to-right clip wipe with an 8px blur settling to sharp — editorial, photographic. Value/team cards respond to the pointer with a ≤5° perspective tilt |
+| **Audit** | The checklist ticks itself | Each "what your audit covers" item receives a checkmark that pops in (scale 0, −30° → settled) in sequence after the row lands; the request form is sticky, always in reach |
+| **Contact** | Focus glow | Form fields breathe on focus — accent border plus a soft 4px halo, the field's label tinting in sympathy. The aside column is sticky so proof and alternatives stay beside the form |
+| **FAQ** | Accordion physics | Answers animate open/closed with real height interpolation (320ms out, 240ms in) via the Web Animations API instead of the native snap; items cascade in at 50ms steps |
+
+All signatures obey the performance contract (§10): rAF-driven, transform/opacity (+ one clip-path), disabled under reduced motion, and fully degraded without JavaScript.
+
+---
+
 *The test for every motion in this system: would removing it make the site feel less considered? If the answer is no, it doesn't ship.*

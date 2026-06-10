@@ -40,7 +40,7 @@
     });
 
     /* ---------- Scroll reveal with auto-stagger ---------- */
-    var GROUPS = ".grid-2, .grid-3, .timeline, .commitments, .chips, .stat-row, .pain-list";
+    var GROUPS = ".grid-2, .grid-3, .timeline, .commitments, .chips, .stat-row, .pain-list, .snapshot";
     document.querySelectorAll(".reveal").forEach(function (section) {
       section.querySelectorAll(GROUPS).forEach(function (group) {
         var step = group.classList.contains("chips") ? 40 : 70;
@@ -230,6 +230,155 @@
       });
     }
 
+    /* ---------- Page signature effects (one distinct effect per page) ---------- */
+    var body = document.body;
+    var fx = { railLinks: null, railSections: null, workBlocks: null, tlFill: null, tlSteps: null, tl: null };
+
+    // Services: floating index rail that tracks the current section
+    if (!reduced && body.classList.contains("page-services") && window.innerWidth >= 1360) {
+      var ids = ["strategy", "design", "care", "seo", "analytics"];
+      var sections = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+      if (sections.length) {
+        var rail = document.createElement("nav");
+        rail.className = "service-rail";
+        rail.setAttribute("aria-label", "Service sections");
+        sections.forEach(function (sec, i) {
+          var eyebrow = sec.querySelector(".eyebrow");
+          var label = eyebrow ? eyebrow.textContent.split("—").pop().trim() : ids[i];
+          var a = document.createElement("a");
+          a.href = "#" + sec.id;
+          var n = document.createElement("span");
+          n.className = "n";
+          n.textContent = "0" + (i + 1);
+          var l = document.createElement("span");
+          l.className = "l";
+          l.textContent = label;
+          a.appendChild(n);
+          a.appendChild(l);
+          rail.appendChild(a);
+        });
+        body.appendChild(rail);
+        fx.railLinks = rail.querySelectorAll("a");
+        fx.railSections = sections;
+      }
+    }
+
+    // Work: cinematic focus — the case study nearest viewport center is sharp
+    if (!reduced && body.classList.contains("page-work")) {
+      fx.workBlocks = Array.prototype.slice.call(document.querySelectorAll(".case-block"));
+    }
+
+    // Approach: the Method timeline draws itself as you read it
+    if (!reduced && body.classList.contains("page-approach")) {
+      fx.tl = document.querySelector(".timeline");
+      if (fx.tl) {
+        var fill = document.createElement("div");
+        fill.className = "t-progress";
+        fill.setAttribute("aria-hidden", "true");
+        fx.tl.appendChild(fill);
+        fx.tlFill = fill;
+        fx.tlSteps = Array.prototype.slice.call(fx.tl.querySelectorAll(".step"));
+      }
+    }
+
+    // About: gentle 3D tilt on value/team cards
+    if (!reduced && finePointer && body.classList.contains("page-about")) {
+      document.querySelectorAll(".card").forEach(function (card) {
+        card.addEventListener("mouseenter", function () {
+          card.style.transition = "transform 160ms cubic-bezier(0.33,1,0.68,1)";
+        });
+        card.addEventListener("mousemove", function (e) {
+          var r = card.getBoundingClientRect();
+          var rx = ((e.clientY - r.top) / r.height - 0.5) * -4;
+          var ry = ((e.clientX - r.left) / r.width - 0.5) * 5;
+          card.style.transform = "translateY(-4px) perspective(900px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg)";
+        });
+        card.addEventListener("mouseleave", function () {
+          card.style.transition = "";
+          card.style.transform = "";
+        });
+      });
+    }
+
+    // FAQ: cascading entrance + real accordion physics
+    if (body.classList.contains("page-faq")) {
+      document.querySelectorAll(".reveal .faq-item").forEach(function (item, i) {
+        item.classList.add("reveal-item");
+        item.style.transitionDelay = Math.min(i, 7) * 50 + "ms";
+      });
+      if (!reduced && "animate" in Element.prototype) {
+        document.querySelectorAll(".faq-item").forEach(function (item) {
+          var summary = item.querySelector("summary");
+          var answer = item.querySelector(".answer");
+          if (!summary || !answer) return;
+          summary.addEventListener("click", function (e) {
+            e.preventDefault();
+            if (item.hasAttribute("data-animating")) return;
+            item.setAttribute("data-animating", "");
+            answer.style.overflow = "hidden";
+            if (item.open) {
+              var closing = answer.animate(
+                [{ height: answer.scrollHeight + "px", opacity: 1 }, { height: "0px", opacity: 0 }],
+                { duration: 240, easing: "cubic-bezier(0.65,0,0.35,1)" }
+              );
+              closing.onfinish = function () {
+                item.open = false;
+                answer.style.overflow = "";
+                item.removeAttribute("data-animating");
+              };
+            } else {
+              item.open = true;
+              var opening = answer.animate(
+                [{ height: "0px", opacity: 0 }, { height: answer.scrollHeight + "px", opacity: 1 }],
+                { duration: 320, easing: "cubic-bezier(0.22,1,0.36,1)" }
+              );
+              opening.onfinish = function () {
+                answer.style.overflow = "";
+                item.removeAttribute("data-animating");
+              };
+            }
+          });
+        });
+      }
+    }
+
+    function updatePageFx() {
+      var vh = window.innerHeight;
+
+      if (fx.railSections) {
+        var current = -1;
+        for (var i = 0; i < fx.railSections.length; i++) {
+          if (fx.railSections[i].getBoundingClientRect().top <= vh * 0.45) current = i;
+        }
+        for (var j = 0; j < fx.railLinks.length; j++) {
+          fx.railLinks[j].classList.toggle("current", j === current);
+        }
+      }
+
+      if (fx.workBlocks) {
+        for (var k = 0; k < fx.workBlocks.length; k++) {
+          var block = fx.workBlocks[k];
+          var r = block.getBoundingClientRect();
+          if (r.bottom < -100 || r.top > vh + 100) continue;
+          var d = Math.abs((r.top + r.height / 2) - vh / 2) / (vh / 2 + r.height / 2);
+          d = Math.min(Math.max(d, 0), 1);
+          block.style.transform = "scale(" + (1 - d * 0.02).toFixed(4) + ")";
+          block.style.opacity = (1 - d * 0.4).toFixed(3);
+        }
+      }
+
+      if (fx.tlFill) {
+        var tr = fx.tl.getBoundingClientRect();
+        var p = Math.min(Math.max((vh * 0.65 - tr.top) / tr.height, 0), 1);
+        fx.tlFill.style.transform = "scaleY(" + p.toFixed(4) + ")";
+        for (var s = 0; s < fx.tlSteps.length; s++) {
+          var passed = fx.tlSteps[s].getBoundingClientRect().top < vh * 0.65;
+          fx.tlSteps[s].classList.toggle("passed", passed);
+          fx.tlSteps[s].classList.toggle("dim", !passed);
+        }
+      }
+    }
+
     /* ---------- One rAF loop: header, scrub chapters, subpage parallax ---------- */
     var header = document.querySelector(".site-header");
     // Subpage hero parallax only — the index hero is a scrub chapter
@@ -258,6 +407,7 @@
       }
 
       updateScrubs();
+      updatePageFx();
 
       lastY = y;
     }
