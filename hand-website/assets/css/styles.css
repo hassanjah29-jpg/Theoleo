@@ -452,14 +452,13 @@ a:hover { color: var(--accent-dark); }
 .site-footer .logo { color: var(--paper); }
 .site-footer .baseline { padding-top: 1.75rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: #8a857c; }
 
-/* ---------- Reveal animation ---------- */
-
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
-.reveal.in { opacity: 1; transform: none; }
+/* ---------- Reveal animation ----------
+   Hidden states live in the motion layer below, gated on the
+   .motion-ready class added by main.js — no-JS visitors always
+   see full content. */
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
 }
 
 /* ---------- Responsive ---------- */
@@ -486,4 +485,244 @@ a:hover { color: var(--accent-dark); }
 
 @media (max-width: 540px) {
   .site-footer .cols { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   MOTION LAYER — see MOTION-SYSTEM.md
+   Transform + opacity only. Hovers gated to fine pointers.
+   All states collapse under prefers-reduced-motion.
+   ============================================================ */
+
+:root {
+  --dur-instant: 120ms;
+  --dur-fast: 200ms;
+  --dur-base: 320ms;
+  --dur-slow: 560ms;
+  --dur-reveal: 720ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+  --stagger: 70ms;
+}
+
+[id] { scroll-margin-top: 96px; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Header: scroll-aware ---------- */
+
+.site-header {
+  transition: transform var(--dur-slow) var(--ease-in-out),
+              box-shadow var(--dur-base) var(--ease-soft);
+}
+.site-header.is-hidden { transform: translateY(-100%); }
+.site-header.is-scrolled { box-shadow: 0 1px 24px rgba(28, 26, 23, 0.07); }
+
+.nav-toggle { transition: transform var(--dur-fast) var(--ease-soft); }
+.nav-toggle.is-open { transform: rotate(90deg); }
+
+/* Drawn underline: enters from the left, exits to the right */
+.nav-links a:not(.btn) { position: relative; }
+.nav-links a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -5px;
+  height: 1.5px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--dur-fast) var(--ease-soft);
+}
+.nav-links a:not(.btn):hover::after,
+.nav-links a:not(.btn)[aria-current="page"]::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Mobile menu choreography */
+@media (max-width: 860px) {
+  .nav-links a:not(.btn)::after { display: none; }
+  .nav-links.open { animation: menuIn var(--dur-base) var(--ease-out); }
+  .nav-links.open li { animation: menuItem 360ms var(--ease-out) backwards; }
+  .nav-links.open li:nth-child(1) { animation-delay: 40ms; }
+  .nav-links.open li:nth-child(2) { animation-delay: 90ms; }
+  .nav-links.open li:nth-child(3) { animation-delay: 140ms; }
+  .nav-links.open li:nth-child(4) { animation-delay: 190ms; }
+  .nav-links.open li:nth-child(5) { animation-delay: 240ms; }
+  .nav-links.open li:nth-child(6) { animation-delay: 290ms; }
+}
+@keyframes menuIn { from { opacity: 0; transform: translateY(-10px); } }
+@keyframes menuItem { from { opacity: 0; transform: translateY(8px); } }
+
+/* ---------- Hero entrance cascade ---------- */
+
+.hero > .container > * {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroIn 600ms var(--ease-out) forwards;
+}
+.hero > .container > *:nth-child(1) { animation-delay: 80ms; }
+.hero > .container > *:nth-child(2) { animation-delay: 170ms; }
+.hero > .container > *:nth-child(3) { animation-delay: 260ms; }
+.hero > .container > *:nth-child(4) { animation-delay: 350ms; }
+@keyframes heroIn { to { opacity: 1; transform: none; } }
+
+/* ---------- Buttons: press physics + outline sweep ---------- */
+
+.btn {
+  transition: background var(--dur-fast) var(--ease-soft),
+              color var(--dur-fast) var(--ease-soft),
+              transform var(--dur-fast) var(--ease-soft),
+              box-shadow var(--dur-fast) var(--ease-soft);
+}
+.btn:active { transform: scale(0.985); transition-duration: var(--dur-instant); }
+
+.btn-outline { position: relative; overflow: hidden; z-index: 0; }
+.btn-outline::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--ink);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--dur-fast) var(--ease-soft);
+}
+.btn-outline:hover { background: transparent; }
+.btn-outline:hover::before { transform: scaleY(1); }
+.section--ink .btn-outline::before { background: var(--paper); }
+.section--ink .btn-outline:hover { background: transparent; }
+
+/* ---------- Hover system (fine pointers only) ---------- */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .btn-primary:hover { box-shadow: 0 8px 24px rgba(26, 93, 74, 0.25); }
+
+  /* Cards: glide + pre-rendered shadow crossfade (no animated box-shadow) */
+  .card, .quote-card, .timeline .step {
+    position: relative;
+    transition: transform var(--dur-base) var(--ease-out),
+                border-color var(--dur-base) var(--ease-soft);
+  }
+  .card::after, .quote-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 14px 36px rgba(28, 26, 23, 0.09);
+    opacity: 0;
+    transition: opacity var(--dur-base) var(--ease-out);
+    pointer-events: none;
+  }
+  .card:hover, .quote-card:hover {
+    transform: translateY(-4px);
+    border-color: #c9d8d2;
+  }
+  .card:hover::after, .quote-card:hover::after { opacity: 1; }
+  .timeline .step:hover { transform: translateY(-2px); border-color: #c9d8d2; }
+
+  /* Card link arrow glide (arrow span added by main.js) */
+  .card-link .arrow {
+    display: inline-block;
+    transition: transform var(--dur-fast) var(--ease-soft);
+  }
+  .card:hover .card-link .arrow,
+  .card-link:hover .arrow { transform: translateX(4px); }
+
+  /* Chips: lift + tint */
+  .chip {
+    transition: transform var(--dur-fast) var(--ease-soft),
+                border-color var(--dur-fast) var(--ease-soft),
+                background var(--dur-fast) var(--ease-soft),
+                color var(--dur-fast) var(--ease-soft);
+  }
+  .chip:hover { transform: translateY(-2px); background: var(--accent-soft); }
+
+  /* Logo strip: focus crossfade */
+  .logo-strip .mark { transition: color var(--dur-fast) var(--ease-soft), opacity var(--dur-fast) var(--ease-soft); }
+  .logo-strip .marks:hover .mark:not(:hover) { opacity: 0.5; }
+  .logo-strip .mark:hover { color: var(--ink); }
+
+  /* Reframe panel + case visual: quiet responses */
+  .contrast .panel.us { transition: transform var(--dur-base) var(--ease-out); }
+  .contrast .panel.us:hover { transform: translateY(-2px); }
+  .case-feature .visual { transition: transform var(--dur-slow) var(--ease-out); }
+  .case-feature:hover .visual { transform: scale(1.015); }
+}
+
+/* ---------- Scroll reveal (states applied only when JS is live) ---------- */
+
+.motion-ready .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--dur-reveal) var(--ease-out),
+              transform var(--dur-reveal) var(--ease-out);
+}
+.motion-ready .reveal.in { opacity: 1; transform: none; }
+
+.motion-ready .reveal-item {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--dur-reveal) var(--ease-out),
+              transform var(--dur-reveal) var(--ease-out);
+}
+.motion-ready .reveal-item.in { opacity: 1; transform: none; }
+
+/* Case-feature visual: un-mask reveal */
+.motion-ready .reveal-mask {
+  clip-path: inset(0 18% 0 0);
+  transform: scale(1.03);
+  transition: clip-path 700ms var(--ease-out), transform 900ms var(--ease-out);
+}
+.motion-ready .reveal-mask.in { clip-path: inset(0 0 0 0); transform: none; }
+
+/* Commitments: accent rule draws in like a signature */
+.commitment { border-left-width: 0; }
+.commitment::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  transform-origin: top;
+  transition: transform 600ms var(--ease-out);
+}
+.commitment { position: relative; }
+.motion-ready .reveal:not(.in) .commitment::before { transform: scaleY(0); }
+.commitments .commitment:nth-child(2)::before { transition-delay: 120ms; }
+.commitments .commitment:nth-child(3)::before { transition-delay: 240ms; }
+.commitments .commitment:nth-child(4)::before { transition-delay: 360ms; }
+
+/* FAQ: answer settles in on open */
+.faq-item summary::after { transition: transform var(--dur-fast) var(--ease-soft); }
+.faq-item[open] .answer { animation: answerIn var(--dur-base) var(--ease-out); }
+@keyframes answerIn { from { opacity: 0; transform: translateY(-6px); } }
+
+/* Form success: slide in */
+.form-success { animation: answerIn var(--dur-base) var(--ease-out); }
+
+/* ---------- Cross-page transitions (progressive enhancement) ---------- */
+
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 250ms; }
+
+/* ---------- Reduced motion: the site is complete without motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero > .container > * { animation: none; opacity: 1; transform: none; }
+  .motion-ready .reveal,
+  .motion-ready .reveal-item,
+  .motion-ready .reveal-mask {
+    opacity: 1; transform: none; clip-path: none; transition: none;
+  }
+  .motion-ready .reveal:not(.in) .commitment::before { transform: none; }
+  .site-header, .btn, .btn-outline::before, .card, .quote-card,
+  .timeline .step, .chip, .nav-toggle { transition: none; }
+  .nav-links.open, .nav-links.open li, .faq-item[open] .answer, .form-success { animation: none; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
 }

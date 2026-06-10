@@ -16,10 +16,19 @@ hand-website/
 ├── audit.html        Free Website Audit lead magnet
 ├── contact.html      Book-a-call form + contact options
 ├── faq.html          Objection handling
+├── MOTION-SYSTEM.md  Full interaction & motion design spec
 └── assets/
-    ├── css/styles.css   Design system (paper/ink palette, emerald accent)
-    └── js/main.js       Nav toggle, scroll reveal, form handling
+    ├── css/styles.css   Design system + motion layer (tokens, hovers, reveals)
+    └── js/main.js       Motion engine: scroll-aware header, staggered reveals,
+                         stat counters, magnetic buttons, parallax, forms
 ```
+
+## Motion
+
+The interaction system is specified in `MOTION-SYSTEM.md` and fully implemented:
+transform/opacity-only animations, one rAF loop for scroll effects, hover effects
+gated to fine pointers, and complete `prefers-reduced-motion` fallbacks. Without
+JavaScript the site renders fully visible and static.
 
 ## Before going live
 
