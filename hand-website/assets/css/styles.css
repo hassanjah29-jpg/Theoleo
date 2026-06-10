@@ -706,6 +706,104 @@ a:hover { color: var(--accent-dark); }
 /* Form success: slide in */
 .form-success { animation: answerIn var(--dur-base) var(--ease-out); }
 
+/* ============================================================
+   SCROLL-SCRUB CHAPTERS (Apple-style pinned storytelling)
+   A tall section pins a full-height stage; scroll progress 0–1
+   is written to --p by main.js and drives the effect. Section
+   heights are set by JS only — no JS / reduced motion renders
+   every chapter as a normal static section.
+   ============================================================ */
+
+.scrub-pin { position: relative; --p: 0; }
+
+.motion-ready .scrub-pin[data-scrub-active] > .scrub-stage {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+.scrub-stage { padding: clamp(3rem, 6vw, 5rem) 0; }
+
+/* Hero chapter: settles, then lifts away as the next chapter arrives */
+.motion-ready .scrub-hero[data-scrub-active] .hero-inner {
+  transform: translateY(calc(var(--p) * -48px)) scale(calc(1 - var(--p) * 0.05));
+  opacity: calc(1 - var(--p) * 1.25);
+}
+
+/* Hero entrance cascade (index hero markup) */
+.hero-cascade > * {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroIn 600ms var(--ease-out) forwards;
+}
+.hero-cascade > *:nth-child(1) { animation-delay: 80ms; }
+.hero-cascade > *:nth-child(2) { animation-delay: 170ms; }
+.hero-cascade > *:nth-child(3) { animation-delay: 260ms; }
+.hero-cascade > *:nth-child(4) { animation-delay: 350ms; }
+
+/* Statement chapter: dim-to-bright word scrub */
+.statement {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4.4vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  max-width: 26ch;
+  margin-top: 0.5rem;
+}
+.scrub-words .w {
+  opacity: 1;
+  transition: opacity 280ms var(--ease-soft);
+}
+.motion-ready .scrub-words.is-split .w { opacity: 0.14; }
+.motion-ready .scrub-words.is-split .w.lit { opacity: 1; }
+
+/* Case chapter: card zooms from 93% and settles to full presence */
+.motion-ready .scrub-case[data-scrub-active] .case-feature {
+  transform: scale(calc(0.93 + min(calc(var(--p) * 1.5), 1) * 0.07));
+  opacity: calc(0.35 + min(calc(var(--p) * 1.8), 1) * 0.65);
+}
+
+/* Horizontal process chapter */
+.h-viewport { overflow: hidden; margin: clamp(2rem, 4vw, 3rem) 0; }
+.h-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  padding-inline: max(4vw, calc((100vw - 1140px) / 2));
+  counter-reset: step;
+  will-change: transform;
+}
+.h-track .step {
+  counter-increment: step;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  width: min(330px, 78vw);
+  flex-shrink: 0;
+}
+.h-track .step::before {
+  content: "0" counter(step);
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+.h-track .step h4 { margin-bottom: 0.4rem; }
+.h-track .step p { font-size: 0.92rem; color: var(--ink-soft); }
+.scrub-h .reassure { margin-top: 0.5rem; }
+
+/* Mobile / no-pin fallback: stages flow normally, track wraps */
+@media (max-width: 859px) {
+  .h-track { flex-wrap: wrap; width: auto; padding-inline: 4vw; }
+}
+
 /* ---------- Cross-page transitions (progressive enhancement) ---------- */
 
 @view-transition { navigation: auto; }
@@ -714,7 +812,10 @@ a:hover { color: var(--accent-dark); }
 /* ---------- Reduced motion: the site is complete without motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {
-  .hero > .container > * { animation: none; opacity: 1; transform: none; }
+  .hero > .container > *, .hero-cascade > * { animation: none; opacity: 1; transform: none; }
+  .motion-ready .scrub-words.is-split .w { opacity: 1; transition: none; }
+  .motion-ready .scrub-hero[data-scrub-active] .hero-inner,
+  .motion-ready .scrub-case[data-scrub-active] .case-feature { transform: none; opacity: 1; }
   .motion-ready .reveal,
   .motion-ready .reveal-item,
   .motion-ready .reveal-mask {

@@ -89,6 +89,16 @@ All hover effects are wrapped in `@media (hover: hover) and (pointer: fine)` —
 ### Scroll-aware header
 See §7 Navigation.
 
+### Pinned scrub chapters (the Apple iPhone-page pattern)
+The homepage's key narrative beats are *chapters*: tall sections (`[data-scrub]`, height set from `data-scrub-len` in vh) whose full-height stage pins via `position: sticky` while scroll progress (0–1) is written to a `--p` custom property each frame. Scrolling doesn't pass the content — it *performs* it:
+
+- **Hero chapter (180vh):** content holds center stage, then lifts away (translate −48px, scale 0.95, fade) as the visitor scrolls on — the page visibly "hands off" to the story.
+- **Statement chapter (260vh):** the brand's core claim renders at 14% opacity and brightens **word by word** as you scrub, finishing at 85% progress so the completed statement holds for a beat. Reading speed becomes scroll speed — the visitor physically can't skim past the positioning.
+- **Case chapter (200vh):** the featured case study zooms from 93% scale and ~35% opacity to full presence — the proof literally comes into focus.
+- **Process chapter (340vh, desktop only):** vertical scroll drives the seven HAND Method stages **horizontally** through a masked viewport — the visitor scrubs through the process in order, embodying "a system, not a scramble." Below 860px it falls back to a wrapped grid.
+
+Chapter mechanics: heights and pinning are applied by JS only, so no-JS and reduced-motion visitors get ordinary static sections with zero dead scroll; off-screen chapters (±200px) are skipped in the frame loop; transforms are `translate3d`/`scale` only.
+
 ### Sticky narrative
 - The MVP keeps one sticky element (the header). The Growth version may add a sticky process rail on Approach (stage labels pin while descriptions scroll) — specified here so it inherits the same tokens when built.
 

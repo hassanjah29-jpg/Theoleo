@@ -56,6 +56,72 @@
       maskTargets.forEach(function (el) { el.classList.add("reveal-mask"); });
     }
 
+    /* ---------- Scroll-scrub chapters (Apple-style pinned storytelling) ----------
+       A [data-scrub] section gets a height of data-scrub-len (vh); its
+       .scrub-stage pins via position:sticky while scroll progress 0–1
+       drives the chapter's effect. Without JS or with reduced motion,
+       chapters render as normal static sections. */
+    var scrubs = [];
+    if (!reduced) {
+      document.querySelectorAll("[data-scrub]").forEach(function (sec) {
+        // Horizontal chapters fall back to a wrapped grid on small screens
+        if (sec.hasAttribute("data-scrub-desktop") && window.innerWidth < 860) return;
+        var len = parseFloat(sec.getAttribute("data-scrub-len")) || 200;
+        sec.style.height = len + "vh";
+        sec.setAttribute("data-scrub-active", "");
+
+        var entry = { el: sec, words: null, track: null, viewport: null, lit: -1 };
+
+        var wordEl = sec.querySelector(".scrub-words");
+        if (wordEl) {
+          var words = wordEl.textContent.trim().split(/\s+/);
+          wordEl.textContent = "";
+          words.forEach(function (word, i) {
+            var span = document.createElement("span");
+            span.className = "w";
+            span.textContent = word;
+            wordEl.appendChild(span);
+            if (i < words.length - 1) wordEl.appendChild(document.createTextNode(" "));
+          });
+          wordEl.classList.add("is-split");
+          entry.words = wordEl.querySelectorAll(".w");
+        }
+
+        entry.track = sec.querySelector(".h-track");
+        entry.viewport = sec.querySelector(".h-viewport");
+        scrubs.push(entry);
+      });
+    }
+
+    function updateScrubs() {
+      for (var i = 0; i < scrubs.length; i++) {
+        var s = scrubs[i];
+        var rect = s.el.getBoundingClientRect();
+        if (rect.bottom < -200 || rect.top > window.innerHeight + 200) continue;
+        var range = rect.height - window.innerHeight;
+        var p = range > 0 ? Math.min(Math.max(-rect.top / range, 0), 1) : 1;
+        s.el.style.setProperty("--p", p.toFixed(4));
+
+        if (s.words) {
+          // words finish lighting at 85% so the statement holds, complete, for a beat
+          var count = Math.floor(Math.min(p / 0.85, 1) * s.words.length);
+          if (count !== s.lit) {
+            for (var w = 0; w < s.words.length; w++) {
+              s.words[w].classList.toggle("lit", w < count);
+            }
+            s.lit = count;
+          }
+        }
+
+        if (s.track && s.viewport) {
+          var max = s.track.scrollWidth - s.viewport.clientWidth;
+          if (max > 0) {
+            s.track.style.transform = "translate3d(" + (-p * max).toFixed(1) + "px,0,0)";
+          }
+        }
+      }
+    }
+
     var revealEls = document.querySelectorAll(".reveal, .reveal-mask");
     if ("IntersectionObserver" in window && !reduced) {
       var revealIO = new IntersectionObserver(function (entries) {
@@ -164,10 +230,10 @@
       });
     }
 
-    /* ---------- One rAF loop: scroll-aware header + parallax ---------- */
+    /* ---------- One rAF loop: header, scrub chapters, subpage parallax ---------- */
     var header = document.querySelector(".site-header");
+    // Subpage hero parallax only — the index hero is a scrub chapter
     var heroBlock = document.querySelector(".hero .container");
-    var caseFeature = document.querySelector(".case-feature");
     var lastY = window.scrollY;
     var ticking = false;
     var parallaxOn = !reduced && window.innerWidth >= 860;
@@ -187,18 +253,11 @@
         }
       }
 
-      if (parallaxOn) {
-        if (heroBlock && y < window.innerHeight) {
-          heroBlock.style.transform = "translate3d(0," + (y * -0.08).toFixed(1) + "px,0)";
-        }
-        if (caseFeature) {
-          var r = caseFeature.getBoundingClientRect();
-          if (r.bottom > 0 && r.top < window.innerHeight) {
-            var center = (r.top + r.height / 2) - window.innerHeight / 2;
-            caseFeature.style.transform = "translate3d(0," + (center * -0.06).toFixed(1) + "px,0)";
-          }
-        }
+      if (parallaxOn && heroBlock && y < window.innerHeight) {
+        heroBlock.style.transform = "translate3d(0," + (y * -0.08).toFixed(1) + "px,0)";
       }
+
+      updateScrubs();
 
       lastY = y;
     }
