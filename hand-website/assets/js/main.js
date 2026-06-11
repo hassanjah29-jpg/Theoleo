@@ -342,8 +342,22 @@
       }
     }
 
+    // Mockup showcase: front/back layers counter-drift as the section passes
+    var mockupVisual = reduced ? null : document.querySelector("[data-mockup]");
+    var mockupFront = mockupVisual ? mockupVisual.querySelector(".mockup-front") : null;
+    var mockupBack = mockupVisual ? mockupVisual.querySelector(".mockup-back") : null;
+
     function updatePageFx() {
       var vh = window.innerHeight;
+
+      if (mockupVisual) {
+        var mr = mockupVisual.getBoundingClientRect();
+        if (mr.bottom > 0 && mr.top < vh) {
+          var md = ((mr.top + mr.height / 2) - vh / 2) / vh; // -0.5..0.5-ish
+          if (mockupFront) mockupFront.style.transform = "translate3d(0," + (md * 34).toFixed(1) + "px,0)";
+          if (mockupBack) mockupBack.style.transform = "translate3d(0," + (md * -26).toFixed(1) + "px,0)";
+        }
+      }
 
       if (fx.railSections) {
         var current = -1;

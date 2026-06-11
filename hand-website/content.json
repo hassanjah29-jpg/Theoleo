@@ -1,0 +1,553 @@
+{
+  "site": {
+    "email": "hello@hand.agency",
+    "phoneDisplay": "+1 (000) 000-0000",
+    "phoneHref": "+10000000000",
+    "footerBlurb": "Your digital presence, handled. A long-term partner for businesses that depend on the web.",
+    "footerTagline": "Handcrafted. Hands-on. In good hands."
+  },
+  "shared": {
+    "commitmentsEyebrow": "The HAND Commitments",
+    "commitmentsHeadline": "Four promises. In writing. Every engagement.",
+    "commitments": [
+      {
+        "title": "Launch-date guarantee",
+        "desc": "We commit to a date and we hit it. If we're late, you don't pay the final installment until we're done."
+      },
+      {
+        "title": "You own everything",
+        "desc": "Code, content, design files, accounts. All of it, in your name, from day one."
+      },
+      {
+        "title": "24-hour response",
+        "desc": "Every message answered by a human within one business day. Usually much faster."
+      },
+      {
+        "title": "No lock-in. Ever.",
+        "desc": "Leave whenever you like — we'll even help you move. Clients stay because they want to."
+      }
+    ]
+  },
+  "home": {
+    "heroHeadline": "Your digital presence, handled.",
+    "heroLede": "HAND designs, builds, and continuously grows websites for businesses that can't afford to look average — or stand still.",
+    "heroPrimaryBtn": "Book a Discovery Call",
+    "heroSecondaryBtn": "Get a Free Website Audit",
+    "clientMarks": [
+      "Harbor & Slate Law",
+      "Northpoint HVAC",
+      "Clarke Dental",
+      "Meridian Mfg.",
+      "Olive & Ash"
+    ],
+    "clientStripStat": "Partnering with 40+ businesses since 2018",
+    "problemEyebrow": "The problem",
+    "problemHeadline": "Your website was finished two years ago.\nThe internet wasn't.",
+    "problemItems": [
+      "It looks fine — until a prospect compares it to your competitor's. Then \"fine\" costs you the deal.",
+      "It gets visitors, but the phone isn't ringing. Traffic without leads is decoration.",
+      "Nobody owns it. Updates pile up, plugins age, and the one person who \"knows the website\" left last spring."
+    ],
+    "statementEyebrow": "A different model",
+    "statement": "Most agencies sell you a website and move on. We never let go. We take responsibility for your entire digital presence — strategy, design, build, hosting, growth — for as long as you'll have us. Launch isn't goodbye. Launch is day one.",
+    "contrastThemTitle": "The typical agency",
+    "contrastThemFlow": "Pitch → Build → Launch → Invoice → Goodbye",
+    "contrastUsTitle": "The HAND model",
+    "contrastUsFlow": "Strategy → Build → Launch → Care → Improve → Grow → Repeat",
+    "servicesEyebrow": "What we do",
+    "servicesHeadline": "One accountable partner. Five disciplines.",
+    "serviceCards": [
+      {
+        "title": "Strategy & Branding",
+        "desc": "Before we design a single pixel, we design the plan. Audience, message, and positioning — so your site is built on strategy, not taste."
+      },
+      {
+        "title": "Web Design & Development",
+        "desc": "Handcrafted websites engineered to convert. Fast, beautiful, and built to turn visitors into customers."
+      },
+      {
+        "title": "Hosting & Care Plans",
+        "desc": "Your site — fast, secure, backed up, and never your problem. When something breaks, you already know who to call."
+      },
+      {
+        "title": "SEO & Growth",
+        "desc": "Be found by the people already looking for you. Compounding organic leads instead of rented attention."
+      },
+      {
+        "title": "Analytics & Optimization",
+        "desc": "We don't guess what works. We measure it — then make your site better, every single quarter."
+      }
+    ],
+    "caseEyebrow": "Featured work — Harbor & Slate Law",
+    "caseHeadline": "From invisible to inevitable.",
+    "caseBody": "A respected firm with a website that whispered while competitors shouted. We rebuilt their presence around the questions clients actually ask — and the consultations followed.",
+    "caseBigStat": "+212%",
+    "caseBigStatLabel": "qualified leads in six months",
+    "caseQuote": "I expected the usual agency disappearing act. The opposite happened.",
+    "caseQuoteAuthor": "Daniel Harbor, Managing Partner",
+    "mockupEyebrow": "Analytics & optimization",
+    "mockupHeadline": "Proof, delivered monthly.",
+    "mockupLede": "Every month, a plain-English report lands in your inbox: what visitors did, what converted, what we improved, and what we're improving next. No dashboards to decode — just evidence that your website is working harder than it was last month.",
+    "mockupPrimaryImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+    "mockupSecondaryImage": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+    "processEyebrow": "The HAND Method",
+    "processHeadline": "A system, not a scramble.",
+    "processSteps": [
+      {
+        "title": "Discovery",
+        "desc": "We begin with questions, not quotes. A 30-minute call and an honest audit of where you stand."
+      },
+      {
+        "title": "Strategy",
+        "desc": "Research, messaging, and a conversion plan. You'll know the timeline and investment before we begin."
+      },
+      {
+        "title": "Design",
+        "desc": "Three structured reviews. You're consulted, not buried in revisions."
+      },
+      {
+        "title": "Development",
+        "desc": "Built to measurable standards — speed, accessibility, SEO foundations. No surprises."
+      },
+      {
+        "title": "Launch",
+        "desc": "Zero-downtime cutover on the date we promised. Guaranteed."
+      },
+      {
+        "title": "Care",
+        "desc": "Hosting, security, backups, updates. You stop thinking about your website."
+      },
+      {
+        "title": "Growth",
+        "desc": "Monthly reports, quarterly reviews. Your site gets better every month — and you see the numbers."
+      }
+    ],
+    "processReassure": "Your total time commitment before launch: about three hours.",
+    "testimonials": [
+      {
+        "quote": "Three years in, they still treat our site like it launched yesterday. Something breaks, it's fixed before I've finished my coffee.",
+        "initials": "MK",
+        "name": "Maria Kovac",
+        "role": "Owner, Olive & Ash Hospitality"
+      },
+      {
+        "quote": "They asked about our margins before they asked about our colors. That told me everything about how this would go.",
+        "initials": "JN",
+        "name": "James Ngata",
+        "role": "GM, Meridian Manufacturing"
+      },
+      {
+        "quote": "The phone rings now. That's the whole review. The phone rings now.",
+        "initials": "RD",
+        "name": "Ray Donnelly",
+        "role": "Founder, Northpoint HVAC"
+      }
+    ],
+    "whoEyebrow": "Who we work with",
+    "whoHeadline": "For businesses that treat their website as an asset, not an expense.",
+    "industries": [
+      "Professional Services",
+      "Home Services & Trades",
+      "Healthcare & Clinics",
+      "Hospitality & Restaurants",
+      "B2B & Manufacturing"
+    ],
+    "finalEyebrow": "Next step",
+    "finalHeadline": "Let's look at your website together.",
+    "finalLede": "Book a 30-minute discovery call — you'll leave with honest advice, whether or not we work together. Prefer to start smaller? Request a free audit and we'll send you a recorded review of your current site within 48 hours."
+  },
+  "services": {
+    "heroEyebrow": "Services",
+    "heroHeadline": "Everything your presence needs. One hand to shake.",
+    "heroLede": "Most businesses juggle a designer, a developer, a hosting company, and an SEO freelancer — and nobody is accountable for the result. At HAND, the result is the whole point.",
+    "sections": [
+      {
+        "eyebrow": "01 — Strategy & Branding",
+        "headline": "Before we design a single pixel, we design the plan.",
+        "lede": "The most expensive website is the one built on guesses. Every HAND engagement starts with understanding your audience, your message, and what makes you the obvious choice.",
+        "deliverables": [
+          "Discovery workshop with your team",
+          "Competitor and audience research",
+          "Messaging framework and positioning",
+          "Sitemap and conversion plan",
+          "Visual direction"
+        ],
+        "meaning": "Clarity. A site built on strategy converts because every page has a job. A site built on taste just sits there looking expensive."
+      },
+      {
+        "eyebrow": "02 — Web Design & Development",
+        "headline": "Handcrafted websites engineered to convert.",
+        "lede": "Your website is your hardest-working salesperson. Ours never call in sick. Custom design, fast performance, and a structure built to turn visitors into customers.",
+        "deliverables": [
+          "Custom design — no templates",
+          "Responsive build on a CMS you can use",
+          "On-page SEO foundations",
+          "Accessibility and performance standards",
+          "Managed, zero-downtime launch"
+        ],
+        "meaning": "A premium presence that loads fast, ranks well, and makes the right first impression on every device — backed by our launch-date guarantee."
+      },
+      {
+        "eyebrow": "03 — Hosting & Care Plans",
+        "headline": "Your site, fast, secure, and never your problem.",
+        "lede": "When something breaks at 2 a.m., who do you call? Our clients already know. Care Plans are how a website stays an asset instead of decaying into a liability.",
+        "deliverables": [
+          "Managed hosting with daily backups",
+          "Security monitoring and updates",
+          "Monthly content-change hours",
+          "24-hour response SLA",
+          "Monthly health report"
+        ],
+        "meaning": "Peace of mind. You stop thinking about your website entirely — which is exactly how it should be."
+      },
+      {
+        "eyebrow": "04 — SEO & Growth",
+        "headline": "Be found by the people already looking for you.",
+        "lede": "Every month you're invisible on Google, your competitor takes the call instead. We build compounding organic visibility so you stop renting attention from ad platforms.",
+        "deliverables": [
+          "Technical SEO and site health",
+          "Keyword and content strategy",
+          "Content production",
+          "Local SEO and citations",
+          "Monthly ranking and lead reports"
+        ],
+        "meaning": "A growing stream of high-intent leads that you own — and that gets cheaper per lead every month it compounds."
+      },
+      {
+        "eyebrow": "05 — Analytics & Optimization",
+        "headline": "We don't guess what works. We measure it.",
+        "lede": "Most websites are launched and forgotten. Ours get better every month — and we show you the numbers that prove it.",
+        "deliverables": [
+          "Analytics and conversion tracking",
+          "Monthly performance reports",
+          "Data-driven improvements",
+          "Quarterly growth reviews"
+        ],
+        "meaning": "Decisions backed by data, a website that improves every quarter, and a clear answer to \"what is this actually doing for us?\""
+      }
+    ],
+    "ctaHeadline": "Not sure where to start?",
+    "ctaLede": "That's what the discovery call is for. Thirty minutes, honest advice, no pressure."
+  },
+  "work": {
+    "heroEyebrow": "Work",
+    "heroHeadline": "Not a gallery. A track record.",
+    "heroLede": "Pretty screenshots don't pay your invoices. These are the stories of what changed for the businesses behind the websites — including what happened a year after launch.",
+    "cases": [
+      {
+        "client": "Harbor & Slate Law",
+        "industry": "Professional Services",
+        "services": "Strategy · Design · SEO · Care",
+        "timeline": "8 weeks to launch",
+        "headlineResult": "+212% qualified leads",
+        "situation": "A respected two-partner firm whose reputation was built on referrals — and whose website looked like it. By the time a referred prospect finished \"checking them out online,\" the polish of the in-person experience had already been undercut.",
+        "problem": "The site took six seconds to load, didn't work on phones, and was invisible for every search a potential client might actually type. It answered no questions and asked for nothing.",
+        "approach": "We rebuilt the firm's presence around the questions clients ask before hiring a lawyer — fees, process, outcomes — and gave every page one job: start a conversation. Local SEO put the firm on the map for the searches that matter.",
+        "stats": [
+          {
+            "num": "+212%",
+            "label": "qualified leads in 6 months"
+          },
+          {
+            "num": "1.2s",
+            "label": "load time, down from 6s"
+          },
+          {
+            "num": "#1–3",
+            "label": "local rankings for 14 key terms"
+          }
+        ],
+        "partnership": "Eighteen months later, we still meet quarterly. Leads are up another 40% on year one, and the firm has added two associates to handle the volume."
+      },
+      {
+        "client": "Northpoint HVAC",
+        "industry": "Home Services",
+        "services": "Design · Local SEO · Care",
+        "timeline": "6 weeks to launch",
+        "headlineResult": "3.4× booked calls",
+        "situation": "Twelve trucks, twenty years in business, and a feast-or-famine lead flow that depended entirely on word of mouth and a fading spot in a paper directory.",
+        "problem": "Searching \"furnace repair\" in their own service area brought up three competitors before them. Their site had no way to book, no reviews, and no reason to call.",
+        "approach": "A conversion-first rebuild: click-to-call everywhere, service-area pages for every town they cover, review integration, and a Google Business Profile overhaul. Then a Care Plan, because an HVAC owner has no time to think about websites — that's the point.",
+        "stats": [
+          {
+            "num": "3.4×",
+            "label": "booked calls within 5 months"
+          },
+          {
+            "num": "#1",
+            "label": "map-pack ranking in 6 of 8 towns"
+          },
+          {
+            "num": "0 hrs",
+            "label": "owner time spent on the website since launch"
+          }
+        ],
+        "partnership": "Two winters in, seasonal campaign pages go up every October without Ray ever asking. \"The phone rings now. That's the whole review.\""
+      },
+      {
+        "client": "Olive & Ash",
+        "industry": "Hospitality",
+        "services": "Branding · Design · Care · Analytics",
+        "timeline": "7 weeks to launch",
+        "headlineResult": "+68% direct reservations",
+        "situation": "A restaurant whose dining room was unforgettable and whose website was a PDF menu from 2019. Nearly every reservation arrived through third-party platforms — along with their commissions.",
+        "problem": "The brand experience ended at the door. Online, Olive & Ash looked like every other restaurant, and paid a platform for the privilege.",
+        "approach": "A photography-led rebuild that put the room, the food, and the story first — with direct reservations one tap away on every page. Own your guests; don't rent them.",
+        "stats": [
+          {
+            "num": "+68%",
+            "label": "direct reservations in 4 months"
+          },
+          {
+            "num": "−41%",
+            "label": "third-party commission costs"
+          },
+          {
+            "num": "2.1×",
+            "label": "private-event inquiries"
+          }
+        ],
+        "partnership": "Menus update the day they change. Seasonal campaigns land on schedule. Three years on, Maria has never logged into the CMS — and never needed to."
+      }
+    ],
+    "ctaHeadline": "Want results like these?",
+    "ctaLede": "Every one of these projects started with a 30-minute conversation."
+  },
+  "approach": {
+    "heroEyebrow": "The HAND Method",
+    "heroHeadline": "A named process. Because vague promises aren't a plan.",
+    "heroLede": "You've probably heard \"we have a proven process\" before. Here is ours, stage by stage — what happens, what you get, and exactly how much of your time it takes.",
+    "orbitalEyebrow": "The Method, at a glance",
+    "orbitalHeadline": "Seven stages. One orbit.",
+    "orbitalLede": "Tap any stage to see what happens there — and how little of your time it takes.",
+    "steps": [
+      {
+        "title": "Discovery — week 0",
+        "phase": "Pre-launch",
+        "time": "Your time: 30 minutes.",
+        "desc": "We begin with questions, not quotes. A 30-minute call, an honest audit of your current presence, and a mutual fit decision. If we're not the right partner, we'll say so and point you somewhere better."
+      },
+      {
+        "title": "Strategy — weeks 1–2",
+        "phase": "Pre-launch",
+        "time": "Your time: 90 minutes.",
+        "desc": "A working session with your team, audience and competitor research, messaging, sitemap, and a conversion plan. You'll know the full timeline and investment before anything is built."
+      },
+      {
+        "title": "Design — weeks 3–4",
+        "phase": "Pre-launch",
+        "time": "Your time: 3 × 30 minutes.",
+        "desc": "Design direction, then the full design — reviewed at three fixed checkpoints. You're consulted at the moments that matter, not buried in revision rounds."
+      },
+      {
+        "title": "Development — weeks 4–6",
+        "phase": "Pre-launch",
+        "time": "Your time: none required.",
+        "desc": "We build to measurable standards: fast load times, accessibility, SEO foundations, and a CMS you can actually use. You'll see progress on a staging link the whole way."
+      },
+      {
+        "title": "Launch — week 6–8",
+        "phase": "Launch",
+        "time": "Your time: a 45-minute handover.",
+        "desc": "Managed migration, zero-downtime cutover, training for your team, and our launch-date guarantee: we commit to a date and we hit it."
+      },
+      {
+        "title": "Care — ongoing",
+        "phase": "Ongoing",
+        "time": "Your time: send an email when you want something changed.",
+        "desc": "Hosting, security, backups, updates, and monthly content hours under a 24-hour response SLA. Launch is day one, not goodbye."
+      },
+      {
+        "title": "Growth — ongoing",
+        "phase": "Ongoing",
+        "time": "Your time: one 30-minute review per quarter.",
+        "desc": "Monthly reports, quarterly growth reviews, SEO and optimization roadmaps. Your website gets measurably better every quarter — and you see the numbers."
+      }
+    ],
+    "reassure": "Total client time before launch: about three hours. We do the work. That's what you're paying for.",
+    "fitHeadline": "Who we're for — and who we're not.",
+    "fitItems": [
+      "Established businesses that depend on their digital presence for leads, sales, or credibility",
+      "Owners who want one accountable partner, not a vendor list",
+      "Teams that value reliability over novelty and think in years, not launches"
+    ],
+    "notFitItems": [
+      "If price is the only criterion, a template marketplace will serve you better — genuinely",
+      "If you want a site launched and never touched again, our model isn't built for that",
+      "If you'd rather direct every pixel than delegate the outcome, we'll frustrate each other"
+    ]
+  },
+  "about": {
+    "heroHeadline": "Websites are projects to everyone else. To us, they're a responsibility.",
+    "whyEyebrow": "Why HAND exists",
+    "whyHeadline": "Too many good businesses are held back by bad websites.",
+    "whyLede": "HAND started with a pattern we kept seeing: excellent businesses — skilled, trusted, busy — represented online by something that undersold everything they'd built. Not because they didn't care, but because nobody had ever taken real ownership of their presence.",
+    "whyPara2": "The agency would launch and leave. The freelancer would drift away. The \"website person\" would change jobs. And the site would quietly decay while the business it represented kept getting better.",
+    "whyPara3": "So we built the company we kept wishing existed: one partner, permanently accountable, for everything your business is online. Handcrafted work, hands-on care — your presence in good hands. That's the name, and that's the whole idea.",
+    "values": [
+      {
+        "title": "Partnership, not projects",
+        "desc": "We measure success in years, not launches. 94% of our clients are still with us after year one."
+      },
+      {
+        "title": "Proof over promises",
+        "desc": "We'd rather show you numbers than adjectives. Every claim on this site has a case study behind it."
+      },
+      {
+        "title": "Craft and care",
+        "desc": "Handmade quality, obsessively maintained. The details you don't notice are the ones we sweat most."
+      },
+      {
+        "title": "Plain talk",
+        "desc": "No jargon, no buzzwords, no surprises. If we wouldn't say it across a kitchen table, we don't say it."
+      },
+      {
+        "title": "Honest fit",
+        "desc": "We say no to work we're wrong for, and we'll tell you when a cheaper option genuinely serves you better."
+      },
+      {
+        "title": "One hand to shake",
+        "desc": "Strategy, design, build, hosting, growth — one team, one phone number, one party accountable for the result."
+      }
+    ],
+    "team": [
+      {
+        "initials": "FN",
+        "name": "Founder Name",
+        "role": "Founder & Strategy Lead.",
+        "bio": "A decade of building websites that pay for themselves. Believes the best design decision is usually a business decision."
+      },
+      {
+        "initials": "DL",
+        "name": "Design Lead",
+        "role": "Design Lead.",
+        "bio": "Premium through restraint. Sweats typography so your customers don't have to think about it."
+      },
+      {
+        "initials": "TL",
+        "name": "Technical Lead",
+        "role": "Technical Lead.",
+        "bio": "The reason our sites load in a heartbeat and our uptime stat is boring. Boring is the goal."
+      }
+    ],
+    "stats": [
+      {
+        "num": "2018",
+        "label": "partnering with businesses since"
+      },
+      {
+        "num": "60+",
+        "label": "launches delivered"
+      },
+      {
+        "num": "94%",
+        "label": "of clients stay past year one"
+      },
+      {
+        "num": "99.98%",
+        "label": "uptime across our care plans"
+      }
+    ],
+    "ctaHeadline": "The best way to know us is a conversation.",
+    "ctaLede": "Thirty minutes. Honest advice. No pressure, no pitch deck."
+  },
+  "audit": {
+    "heroEyebrow": "Free Website Audit",
+    "heroHeadline": "Find out what your website is costing you.",
+    "heroLede": "Send us your URL. Within 48 hours, you'll get a personally recorded video review of your site — what's working, what's leaking leads, and what we'd fix first. Not a generated report. A real person, looking at your real site.",
+    "coversHeadline": "What your audit covers",
+    "covers": [
+      {
+        "title": "First impression",
+        "desc": "what a prospect sees, feels, and concludes in the first five seconds"
+      },
+      {
+        "title": "Conversion path",
+        "desc": "how easy it is to become a lead, and where visitors fall out"
+      },
+      {
+        "title": "Speed & mobile",
+        "desc": "load times and the experience on the device most of your visitors use"
+      },
+      {
+        "title": "Search visibility",
+        "desc": "whether the people looking for what you do can find you"
+      },
+      {
+        "title": "The first three fixes",
+        "desc": "what we'd prioritize, whether you hire us or not"
+      }
+    ],
+    "noObligation": "No obligation. No follow-up call unless you ask for one. The audit is yours to keep — and to act on with anyone.",
+    "quotes": [
+      {
+        "quote": "The audit alone was worth more than the last proposal I paid for. They showed me exactly where calls were being lost.",
+        "initials": "SC",
+        "name": "Dr. Sarah Clarke",
+        "role": "Clarke Dental"
+      },
+      {
+        "quote": "Ten minutes of video, three problems I'd never noticed, zero sales pressure. We hired them a month later.",
+        "initials": "JN",
+        "name": "James Ngata",
+        "role": "Meridian Manufacturing"
+      },
+      {
+        "quote": "I sent the audit to my business partner with the subject line \"told you so.\"",
+        "initials": "RD",
+        "name": "Ray Donnelly",
+        "role": "Northpoint HVAC"
+      }
+    ]
+  },
+  "contact": {
+    "heroEyebrow": "Contact",
+    "heroHeadline": "Let's talk about your presence.",
+    "heroLede": "A 30-minute discovery call: we'll look at where you are, where you want to be, and give you honest advice — whether or not we end up working together.",
+    "asideQuote": {
+      "quote": "The discovery call felt like talking to a sharp friend who happens to build websites. No pitch, just useful questions.",
+      "initials": "MK",
+      "name": "Maria Kovac",
+      "role": "Olive & Ash"
+    }
+  },
+  "faq": {
+    "heroHeadline": "Honest answers to fair questions.",
+    "items": [
+      {
+        "q": "How much does a website cost?",
+        "a": "Most HAND projects land between $10,000 and $50,000 depending on scope, with Care Plans from a few hundred dollars per month and growth retainers scaled to ambition. We publish ranges because \"it depends — book a call\" wastes your time. If your budget is under $10k, a template-based option may genuinely serve you better, and we'll tell you so on the discovery call."
+      },
+      {
+        "q": "Will I be locked in to you?",
+        "a": "No — and this is in writing in every contract. You own everything: code, content, design files, domains, and accounts, all in your name from day one. If you ever leave, we'll help you migrate. Clients stay because they want to; 94% are still with us after year one."
+      },
+      {
+        "q": "What happens after launch?",
+        "a": "Launch is day one, not goodbye. Every project moves into a Care Plan — hosting, security, backups, updates, and monthly content hours under a 24-hour response SLA. Most clients add quarterly growth reviews, where we look at the numbers and decide what to improve next."
+      },
+      {
+        "q": "How long does a project take?",
+        "a": "Most sites launch in six to eight weeks from the strategy kickoff. You'll have the exact date before we start — and our launch-date guarantee means that if we miss it, you don't pay the final installment until we're done."
+      },
+      {
+        "q": "How much of my time will this take?",
+        "a": "About three hours total before launch: a discovery call, a strategy session, three short design reviews, and a handover. We structured the process so you can delegate the outcome instead of managing the project."
+      },
+      {
+        "q": "We already have a website. Do we have to start over?",
+        "a": "Not necessarily. The free audit will tell you honestly whether your current site is worth improving or genuinely holding you back. Sometimes the right answer is a focused round of fixes plus a Care Plan — and when it is, that's what we'll recommend."
+      },
+      {
+        "q": "What makes HAND different from other agencies?",
+        "a": "The model. Most agencies are built around projects: pitch, build, launch, goodbye. HAND is built around partnership: the majority of our work is the ongoing care, optimization, and growth of sites we've launched. That changes the incentives — we build things we'll have to maintain, and our best marketing is your year-two results."
+      },
+      {
+        "q": "Do you work with businesses in any industry?",
+        "a": "We focus where we're strongest: professional services, home services and trades, healthcare, hospitality, and B2B manufacturing. If you're outside those, the discovery call will sort out fit quickly — and if we're wrong for you, we'll point you toward someone better suited."
+      }
+    ],
+    "ctaHeadline": "Still have questions? Ask us live.",
+    "ctaLede": "Thirty minutes, honest answers, zero pressure."
+  }
+}
