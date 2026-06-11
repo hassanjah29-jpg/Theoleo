@@ -4,19 +4,20 @@
    ============================================================ */
 
 :root {
-  --paper: #faf8f4;
-  --paper-deep: #f3efe8;
-  --ink: #1c1a17;
-  --ink-soft: #4a463f;
-  --ink-faint: #8a857c;
-  --accent: #1a5d4a;
-  --accent-dark: #134537;
-  --accent-soft: #e7efec;
-  --line: #e4dfd6;
+  --paper: #13161c;
+  --paper-deep: #181c24;
+  --ink: #ecebe6;
+  --ink-soft: #b3b1a8;
+  --ink-faint: #807d74;
+  --accent: #2ea27c;
+  --accent-dark: #4cc39a;
+  --accent-soft: #1b352c;
+  --line: #272c36;
   --radius: 6px;
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Inter", -apple-system, "Segoe UI", sans-serif;
   --measure: 68ch;
+  color-scheme: dark;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -79,8 +80,8 @@ a:hover { color: var(--accent-dark); }
 .section { padding: clamp(4rem, 9vw, 7.5rem) 0; }
 .section--tight { padding: clamp(2.5rem, 5vw, 4rem) 0; }
 .section--deep { background: var(--paper-deep); }
-.section--ink { background: var(--ink); color: var(--paper); }
-.section--ink h2, .section--ink h3 { color: var(--paper); }
+.section--ink { background: #0b0e13; color: #ecebe6; }
+.section--ink h2, .section--ink h3 { color: #ecebe6; }
 .section--ink p { color: #c9c4ba; }
 
 .section-head { margin-bottom: clamp(2.5rem, 5vw, 4rem); max-width: 60ch; }
@@ -94,7 +95,7 @@ a:hover { color: var(--accent-dark); }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(250, 248, 244, 0.92);
+  background: rgba(19, 22, 28, 0.85);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
@@ -158,8 +159,8 @@ a:hover { color: var(--accent-dark); }
 .btn-outline { border-color: var(--ink); color: var(--ink); background: transparent; }
 .btn-outline:hover { background: var(--ink); color: var(--paper); }
 
-.section--ink .btn-outline { border-color: var(--paper); color: var(--paper); }
-.section--ink .btn-outline:hover { background: var(--paper); color: var(--ink); }
+.section--ink .btn-outline { border-color: #ecebe6; color: #ecebe6; }
+.section--ink .btn-outline:hover { background: #ecebe6; color: #0b0e13; }
 
 .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.25rem; }
 
@@ -199,7 +200,7 @@ a:hover { color: var(--accent-dark); }
 /* ---------- Cards ---------- */
 
 .card {
-  background: #fff;
+  background: #191e27;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 2.25rem;
@@ -239,7 +240,7 @@ a:hover { color: var(--accent-dark); }
 /* ---------- Case study feature ---------- */
 
 .case-feature {
-  background: #fff;
+  background: #191e27;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
@@ -247,7 +248,7 @@ a:hover { color: var(--accent-dark); }
   grid-template-columns: 1fr 1fr;
 }
 .case-feature .visual {
-  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+  background: linear-gradient(135deg, #0f3b2e, #1a5d4a);
   color: #fff;
   padding: 3rem;
   display: flex;
@@ -277,7 +278,7 @@ a:hover { color: var(--accent-dark); }
 .timeline { counter-reset: step; display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
 .timeline .step {
   counter-increment: step;
-  background: #fff;
+  background: #191e27;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 1.75rem;
@@ -303,7 +304,7 @@ a:hover { color: var(--accent-dark); }
 /* ---------- Testimonials ---------- */
 
 .quote-card {
-  background: #fff;
+  background: #191e27;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 2rem;
@@ -346,7 +347,7 @@ a:hover { color: var(--accent-dark); }
 .chips { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
 .chip {
   border: 1px solid var(--line);
-  background: #fff;
+  background: #191e27;
   border-radius: 100px;
   padding: 0.5rem 1.2rem;
   font-size: 0.9rem;
@@ -368,7 +369,7 @@ a:hover { color: var(--accent-dark); }
   padding: 0.8rem 1rem;
   border: 1.5px solid var(--line);
   border-radius: var(--radius);
-  background: #fff;
+  background: #191e27;
   color: var(--ink);
   width: 100%;
 }
@@ -390,7 +391,7 @@ a:hover { color: var(--accent-dark); }
 /* ---------- Case study pages / work ---------- */
 
 .case-block {
-  background: #fff;
+  background: #191e27;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: clamp(2rem, 5vw, 3.5rem);
@@ -433,8 +434,8 @@ a:hover { color: var(--accent-dark); }
 /* ---------- Footer ---------- */
 
 .site-footer {
-  background: var(--ink);
-  color: #c9c4ba;
+  background: #0a0c10;
+  color: #b8b5ac;
   padding: clamp(3rem, 6vw, 5rem) 0 2rem;
   font-size: 0.93rem;
 }
@@ -445,11 +446,11 @@ a:hover { color: var(--accent-dark); }
   padding-bottom: 3rem;
   border-bottom: 1px solid #38342e;
 }
-.site-footer h4 { color: var(--paper); margin-bottom: 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; }
+.site-footer h4 { color: #ecebe6; margin-bottom: 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; }
 .site-footer ul { list-style: none; display: grid; gap: 0.6rem; }
 .site-footer a { color: #c9c4ba; }
 .site-footer a:hover { color: #fff; }
-.site-footer .logo { color: var(--paper); }
+.site-footer .logo { color: #ecebe6; }
 .site-footer .baseline { padding-top: 1.75rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: #8a857c; }
 
 /* ---------- Reveal animation ----------
@@ -520,7 +521,7 @@ a:hover { color: var(--accent-dark); }
               box-shadow var(--dur-base) var(--ease-soft);
 }
 .site-header.is-hidden { transform: translateY(-100%); }
-.site-header.is-scrolled { box-shadow: 0 1px 24px rgba(28, 26, 23, 0.07); }
+.site-header.is-scrolled { box-shadow: 0 1px 24px rgba(0, 0, 0, 0.4); }
 
 .nav-toggle { transition: transform var(--dur-fast) var(--ease-soft); }
 .nav-toggle.is-open { transform: rotate(90deg); }
@@ -594,14 +595,14 @@ a:hover { color: var(--accent-dark); }
 }
 .btn-outline:hover { background: transparent; }
 .btn-outline:hover::before { transform: scaleY(1); }
-.section--ink .btn-outline::before { background: var(--paper); }
+.section--ink .btn-outline::before { background: #ecebe6; }
 .section--ink .btn-outline:hover { background: transparent; }
 
 /* ---------- Hover system (fine pointers only) ---------- */
 
 @media (hover: hover) and (pointer: fine) {
 
-  .btn-primary:hover { box-shadow: 0 8px 24px rgba(26, 93, 74, 0.25); }
+  .btn-primary:hover { box-shadow: 0 8px 24px rgba(46, 162, 124, 0.28); }
 
   /* Cards: glide + pre-rendered shadow crossfade (no animated box-shadow) */
   .card, .quote-card, .timeline .step {
@@ -614,17 +615,17 @@ a:hover { color: var(--accent-dark); }
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    box-shadow: 0 14px 36px rgba(28, 26, 23, 0.09);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: opacity var(--dur-base) var(--ease-out);
     pointer-events: none;
   }
   .card:hover, .quote-card:hover {
     transform: translateY(-4px);
-    border-color: #c9d8d2;
+    border-color: #2f4f43;
   }
   .card:hover::after, .quote-card:hover::after { opacity: 1; }
-  .timeline .step:hover { transform: translateY(-2px); border-color: #c9d8d2; }
+  .timeline .step:hover { transform: translateY(-2px); border-color: #2f4f43; }
 
   /* Card link arrow glide (arrow span added by main.js) */
   .card-link .arrow {
@@ -779,7 +780,7 @@ a:hover { color: var(--accent-dark); }
 }
 .h-track .step {
   counter-increment: step;
-  background: #fff;
+  background: #191e27;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 1.75rem;
@@ -887,7 +888,7 @@ a:hover { color: var(--accent-dark); }
   border: 2px solid var(--line);
   transition: background var(--dur-base) var(--ease-soft), border-color var(--dur-base) var(--ease-soft);
 }
-.page-approach .timeline .step.passed { border-color: #c9d8d2; }
+.page-approach .timeline .step.passed { border-color: #2f4f43; }
 .page-approach .timeline .step.passed::after { background: var(--accent); border-color: var(--accent); }
 .page-approach .timeline .step.dim { opacity: 0.45; }
 
